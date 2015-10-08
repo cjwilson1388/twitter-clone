@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	$('#tweet-controls').css({
 		display: 'none'
@@ -6,15 +7,36 @@ $(document).ready(function(){
 		$('#tweet-controls').css({
 			display: 'inherit'
 		})
-		$('#mainCompose').css("height", '5em')
+		$('#mainCompose').css("height", '6em')
 	});
-
-
+	$("#mainCompose").keyup(function(event) {
+		tc=$(this);
+		if(tc.val().length >= 140){
+			tc.val( tc.val().substr(0, 140) );
+		} else {
+			$('#char-count').text(140 - tc.val().length);
+			}
+		});
 
 });
+
+
+
+
+
+
+
 
 /*
-$( "#target" ).click(function() {
-  alert( "Handler for .click() called." );
+$('#mainCompose').keyup(function(event) {
+	tc=$(this);
+	if(tc.val().length >= 140){
+		tc.val( tc.val().substr(0, 140) );
+	} else {
+		$('#char-count').text(140 - tc.val().length);
+		}
+	}
 });
 */
+
+//.text();
